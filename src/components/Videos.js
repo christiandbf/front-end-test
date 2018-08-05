@@ -30,7 +30,7 @@ const styles = theme => ({
 
 const TitlebarGridList = ({ classes, tileData, cols, searchQuery, playVideo }) => (
   <div className={classes.root}>
-    <GridList cellHeight={'auto'} className={classes.gridList} cols={cols} cellHeight={400} >
+    <GridList className={classes.gridList} cols={cols} cellHeight={400} >
       <GridListTile key="Subheader" cols={cols} style={{ height: 'auto' }}>
         <ListSubheader component="div">{searchQuery ? `Results for ${searchQuery}` : 'Recommended videos'}</ListSubheader>
       </GridListTile>
