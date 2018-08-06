@@ -32,7 +32,7 @@ class App extends Component {
       search: '',
       searchQuery: '',
       videos: null,
-      id: ''
+      video: null
     };
   }
 
@@ -41,7 +41,7 @@ class App extends Component {
   }
 
   fetchVideos() {
-    this.setState({ videos: null, searchQuery: this.state.search });
+    this.setState({ videos: null, searchQuery: this.state.search, video: null });
     getVideos(this.state.search)
       .then(data => this.setState({ videos: data }))
       .catch(err => alert(err.message));
@@ -56,15 +56,15 @@ class App extends Component {
             search={this.state.search} 
             changeSearch={search => this.setState({ search })} 
             fetch={this.fetchVideos.bind(this)} 
-            goHome={() => this.setState({ id: '' })}
+            goHome={() => this.setState({ video: null })}
           />
-          { this.state.id 
-            ? <Player id={this.state.id} /> 
+          { this.state.video 
+            ? <Player video={this.state.video} /> 
             : !this.state.videos || 
               <Videos 
                 tileData={this.state.videos} 
                 searchQuery={this.state.searchQuery} 
-                playVideo={id => () => this.setState({ id })}
+                playVideo={video => () => this.setState({ video })}
               /> 
           }
         </React.Fragment>

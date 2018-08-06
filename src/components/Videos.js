@@ -7,14 +7,13 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import Hidden from '@material-ui/core/Hidden';
 
-const styles = theme => ({
+export const styles = theme => ({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     overflow: 'hidden',
-    marginTop: 10,
-    backgroundColor: theme.palette.background.paper,
+    backgroundColor: theme.palette.background.paper
   },
   gridList: {
     flex: 0.9,
@@ -28,14 +27,14 @@ const styles = theme => ({
   }
 });
 
-const TitlebarGridList = ({ classes, tileData, cols, searchQuery, playVideo }) => (
+export const TitlebarGridList = ({ classes, tileData, cols, searchQuery, playVideo }) => (
   <div className={classes.root}>
     <GridList className={classes.gridList} cols={cols} cellHeight={400} >
       <GridListTile key="Subheader" cols={cols} style={{ height: 'auto' }}>
         <ListSubheader component="div">{searchQuery ? `Results for ${searchQuery}` : 'Recommended videos'}</ListSubheader>
       </GridListTile>
       {tileData.map(tile => (
-        <GridListTile key={tile.img} onClick={playVideo(tile.id)} className={classes.video}>
+        <GridListTile key={tile.img} onClick={playVideo(tile)} className={classes.video}>
           <img src={tile.img} alt={tile.title} />
           <GridListTileBar
             title={tile.title}
