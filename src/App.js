@@ -29,10 +29,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: '',
-      searchQuery: '',
-      videos: null,
-      video: null
+      search: '', // Videos to search
+      searchQuery: '', // Last video searched
+      videos: null, // Videos to show description
+      video: null // Video to play
     };
   }
 
@@ -58,6 +58,7 @@ class App extends Component {
             fetch={this.fetchVideos.bind(this)} 
             goHome={() => this.setState({ video: null })}
           />
+          { /* Render the player or videos description */ }
           { this.state.video 
             ? <Player video={this.state.video} /> 
             : !this.state.videos || 

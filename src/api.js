@@ -2,6 +2,7 @@ import { API_KEY, DEFAULT_SEARCH, MAX_RESULTS } from './constants';
 
 const base = 'https://www.googleapis.com/youtube/v3';
 
+// Data neccessary for the app
 const normalize = json => {
   return json.items.reduce((acc, element) =>
     [...acc, {

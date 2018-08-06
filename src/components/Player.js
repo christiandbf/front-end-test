@@ -24,7 +24,7 @@ class Player extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      video: this.props.video,
+      video: this.props.video, // Video to play
       recommendedVideos: null
     };
     this.classes = this.props.classes;
