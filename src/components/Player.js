@@ -7,7 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import Hidden from '@material-ui/core/Hidden';
 import { styles as recommendedVideosStyle, TitlebarGridList } from './Videos';
 
-import { getRecommendedVideos } from '../api';
+import { getRecommendedVideos, getViews } from '../api';
 
 const RecommendedVideos = withStyles(recommendedVideosStyle)(TitlebarGridList);
 
@@ -25,6 +25,7 @@ class Player extends Component {
     super(props);
     this.state = {
       video: this.props.video, // Video to play
+      views: '',
       recommendedVideos: null
     };
     this.classes = this.props.classes;
@@ -38,11 +39,19 @@ class Player extends Component {
   }
 
   componentDidMount() {
+    this.getViews();
     this.fetchVideos();
+  }
+
+  getViews() {
+    getViews(this.state.video.id)
+      .then(views => this.setState({ views }))
+      .catch(err => alert(err.message));
   }
 
   changeVideo(video) {
     this.setState({ video });
+    this.getViews();
     this.fetchVideos();
   }
 
@@ -68,6 +77,9 @@ class Player extends Component {
               </Typography>
               <Typography variant="body2" gutterBottom>
                 {this.state.video.author}
+              </Typography>
+              <Typography variant="body2" gutterBottom>
+                { !this.state.views || this.state.views + ' Views'}
               </Typography>
               <Hidden smDown>
                 <Typography variant="body1" gutterBottom align="left">

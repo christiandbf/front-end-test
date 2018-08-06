@@ -26,12 +26,12 @@ export const getVideos = async (term) => {
   }
 };
 
-export const getVideoInfo = async (id) => {
-  const uri = `${base}/videos?key=${API_KEY}&part=snippet&statistics&id=${id}&type=video`;
+export const getViews = async (id) => {
+  const uri = `${base}/videos?key=${API_KEY}&part=snippet,statistics&id=${id}&type=video`;
   try {
     const response = await fetch(uri);
     const json = await response.json();
-    return json;
+    return Number(json.items[0].statistics.viewCount).toLocaleString();
   } catch (err) {
     throw err;
   }
