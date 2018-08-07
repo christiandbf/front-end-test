@@ -59,6 +59,7 @@ class App extends Component {
             goHome={() => this.setState({ video: null })}
           />
           { /* Render the player or videos description */ }
+          <div style={{ marginTop: 10 }}>
           { this.state.video 
             ? <Player video={this.state.video} /> 
             : !this.state.videos || 
@@ -68,6 +69,7 @@ class App extends Component {
                 playVideo={video => () => this.setState({ video })}
               /> 
           }
+          </div>
         </React.Fragment>
       </MuiThemeProvider>
     );

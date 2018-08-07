@@ -16,7 +16,6 @@ const styles = theme => ({
     flexGrow: 1,
     marginRight: 30,
     marginLeft: 30,
-    marginTop: 10
   }
 });
 
