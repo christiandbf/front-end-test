@@ -4,6 +4,8 @@ This project was bootstrapped with Create React App.
 
 YouTube clone.
 
+* NodeJS version used 8.11.3.
+
 ![Home](https://github.com/christiandbf/front-end-test/blob/master/img/home.png "Home")
 ![Search](https://github.com/christiandbf/front-end-test/blob/master/img/search.png "Search")
 ![Player](https://github.com/christiandbf/front-end-test/blob/master/img/player.png "Player")
